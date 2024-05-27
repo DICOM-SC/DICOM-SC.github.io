@@ -614,7 +614,7 @@ iframe{
 .desc-lib-btn:hover svg{
   fill: #10cc4e;
 }
-.desc-lib-btn:hover .desc-lib-btn div h4, .desc-lib-btn div p{
+.desc-lib-btn:hover .desc-lib-btn div h4, .desc-lib-btn:hover .desc-lib-btn div p{
   color: #10cc4e;
 }
 .desc-lib-btn:active{
@@ -623,7 +623,7 @@ iframe{
 .desc-lib-btn:active svg{
   fill: #10cc4e;
 }
-.desc-lib-btn:active .desc-lib-btn div h4, .desc-lib-btn div p{
+.desc-lib-btn:active .desc-lib-btn div h4,.desc-lib-btn:active .desc-lib-btn div p{
   color: #10cc4e;
 }
 
