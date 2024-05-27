@@ -1,0 +1,660 @@
+/* Estilos básicos */
+:root {
+  --rosa-button: #ffe8dd;
+  --rosa-button-hover: #857a75;
+  --rosa-button-hover: #856f65;
+  --gris-icon: #333;
+  --bottom-bar: #302c00c2;
+}
+
+@font-face {
+  font-family: Salsa;
+  src: url(/fonts/Salsa-Regular.woff);
+}
+
+@font-face {
+  font-family: Ubuntu-Medium;
+  src: url(/fonts/Ubuntu-Medium.woff);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Salsa", sans-serif;
+  color: #ffcdbc;
+  font-size: 1.3em;
+}
+#frame{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-content: center;
+  background-color: lightgray;
+}
+#viewport{
+  position: relative;
+  height: 99vh;
+  aspect-ratio: 9/20;
+  overflow: hidden;
+  margin: auto auto;
+  border-radius: 10px;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: lightgrey;
+  left: 100%;
+}
+
+.active {
+  left: 0;
+  z-index: 1000;
+}
+
+
+/* SPLASH SCREEN */
+#page1 {
+  background-color: #5c5527;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flor-centro {
+  width: 25%;
+}
+
+.firma-cont {
+  max-width: 75%;
+  margin: 40% 0;
+}
+
+.firma-cont img {
+  width: 100%;
+}
+
+.firma-cont p {
+  text-align: center;
+}
+
+.CopirightDICOM{
+  font-size: .6em;
+  color: #ffffff7c;
+  font-family: sans-serif;
+  position: absolute;
+  bottom: 5%;
+}
+
+/* PANTALLA 02 */
+#page2 {
+  z-index: 60;
+  overflow: hidden;
+}
+.fondo-page2{
+  width: 180%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -90;
+}
+
+.cont-firma-negro {
+  width: 100%;
+  background: linear-gradient(0deg,
+      rgba(148, 129, 125, 0) 0%,
+      rgba(148, 129, 125, 1) 60%);
+  display: flex;
+  justify-content: center;
+  height: 20%;
+}
+
+.cont-firma-negro img {
+  max-width: 75%;
+  margin-top: 30px;
+  align-self: flex-start;
+}
+
+.menu-primero {
+  height: 20%;
+  width: 100%;
+  background: linear-gradient(0deg,
+      rgba(48, 44, 0, 1) 0%,
+      rgba(48, 44, 0, 0) 100%);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20px 15px;
+  box-sizing: border-box;
+}
+
+.margin-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.menu-column {
+  margin: 0;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.round-button {
+  background-color: var(--rosa-button);
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-width: 0;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  transition: .2s;
+}
+.round-button:hover{
+  background-color: var(--rosa-button-hover);
+}
+.round-button:hover svg{
+  fill: white;
+}
+.round-button:active{
+  background-color: var(--rosa-button-hover);
+}
+.round-button:active svg{
+  fill: white;
+}
+
+.menu-column:nth-child(even) {
+  display: flex;
+  align-items: end;
+}
+
+.svg-icon {
+  max-width: 60%;
+  max-height: 60%;
+  fill: var(--gris-icon);
+}
+
+/* ZIRA TRANS */
+#page3 {
+  background-color: #968075;
+}
+
+.top-bar-cont {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.137);
+  font-family: "Ubuntu-Medium", sans-serif;
+  display: flex;
+}
+
+.home-button {
+  position: relative;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  z-index: 51;
+}
+.home-button:hover svg{
+  fill: var(--gris-icon);
+}
+.home-button:active svg{
+  fill: var(--gris-icon);
+}
+
+.home-button svg {
+  fill: white;
+  margin: 15px;
+  width: 30px;
+  height: 30px;
+}
+
+.top-bar-cont h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 0.8em;
+  margin: auto 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  left: -30px;
+  font-weight: 400;
+}
+
+.page-ziraTrans {
+  max-width: 70%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.mod-flor-large {
+  width: 70%;
+  margin: 20% 0 20%;
+}
+
+.page-ziraTrans p {
+  color: black;
+}
+
+.mod-flor-s {
+  width: 40%;
+  transform: rotate(180deg);
+  margin: 20% 0;
+}
+
+/* BUTTON TRANS */
+.bottom-button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* background-color: gray; */
+  text-align: center;
+}
+
+.bottom-button button {
+  width: 100px;
+  padding: 12px;
+  border: 0;
+  height: 56px;
+  margin: 10% auto;
+  border-radius: 28px;
+  box-sizing: border-box;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  background-color: var(--rosa-button);
+  box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.75);
+  transition: .3s;
+}
+.bottom-button button:hover{
+  background-color: var(--rosa-button-hover);
+}
+.bottom-button button:hover svg{
+  fill: white;
+}
+.bottom-button button:hover p{
+  color: white;
+}
+.bottom-button button:active{
+  background-color: var(--rosa-button-hover);
+}
+.bottom-button button:active svg{
+  fill: white;
+}
+.bottom-button button:active p{
+  color: white;
+}
+
+.bottom-button p {
+  margin: 0;
+  color: var(--gris-icon);
+  text-align: center;
+  width: 80%;
+  font-size: 1.5em;
+  font-family: "Ubuntu-Medium", sans-serif;
+  font-weight: 400;
+  transition: .3s;
+}
+
+.bottom-button svg {
+  fill: var(--gris-icon);
+  max-height: 100%;
+  transition: .3s;
+}
+
+/* BOTTOM BAR */
+.bottom-bar {
+  width: 100%;
+  height: 187px;
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  bottom: 0;
+  bottom: -80px;
+  overflow: hidden;
+}
+
+.back-bottom-bar {
+  background-color: var(--bottom-bar);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  bottom: 0;
+  z-index: -1;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px -1px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.mod-bottom-bar {
+  max-width: 70px;
+  border: var(--bottom-bar) solid 4px;
+}
+
+.top-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  flex-direction: column;
+  /* background-color: #a1a1a1; */
+}
+
+.top-button h3 {
+  margin: 5px 0 0;
+  font-family: "Ubuntu-Medium", sans-serif;
+  font-weight: 400;
+  font-size: 0.75em;
+  letter-spacing: 0.5px;
+  color: var(--rosa-button);
+}
+
+.bottom-buttons {
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  padding: 15px;
+  justify-content: space-between;
+}
+
+/* FACEMORPH PAGE */
+#page4 {
+  display: flex;
+  flex-flow: column;
+}
+
+.page-content {
+  width: 100%;
+  height: 90%;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  padding-bottom: 80px;
+  position: relative;
+}
+
+.facemorph-video-cont {
+  max-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.facemorph-video {
+  width: 100%;
+  bottom: 0;
+}
+
+.facemorph-video::-webkit-media-controls {
+  position: relative;
+  bottom: 120px;
+}
+
+.facemorph-video::-webkit-media-controls-panel {
+  background: none;
+}
+
+/* TRANSISION PAGE ALBUM */
+#page5 {
+  background-color: #8f582f;
+}
+
+.page-TransAlbum img {
+  width: 100%;
+}
+
+.cont-texto-album {
+  width: 100%;
+  background-color: #8f582f;
+  padding: 0 14%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.cont-texto-album p {
+  margin: 0;
+  text-align: center;
+  font-size: 0.9em;
+  color: white;
+}
+
+.cont-texto-album div {
+  height: 100px;
+  width: 100%;
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: linear-gradient(0deg,
+      rgba(143, 88, 47, 1) 4%,
+      rgba(143, 88, 47, 0) 100%);
+}
+
+/* LIBRO TRANS */
+#page6 {
+  background-color: #806943;
+}
+
+.mod-libro-trans {
+  background-color: #806943;
+}
+
+.mod-libro-trans div {
+  background: linear-gradient(0deg,
+      rgba(128, 105, 67, 1) 4%,
+      rgba(128, 105, 67, 0) 100%);
+}
+
+/* DOCUMENTAL */
+#page7 {
+  background-color: black;
+}
+
+.titular {
+  text-align: center;
+  font-family: "Ubuntu-Medium", sans-serif;
+  font-weight: 400;
+  padding-top: 5%;
+  box-sizing: border-box;
+}
+
+.titular h2,
+h3 {
+  margin: 0;
+  font-size: 0.9em;
+  color: #ffc47a;
+}
+
+.titular h2 {
+  text-transform: uppercase;
+}
+
+/* GALERÍAS */
+#page8 {
+  background-color: black;
+}
+
+iframe{
+  width: 100%;
+  aspect-ratio: 16/9;
+  margin-top: 5%;
+}
+
+.galerias-video-cont {
+  position: relative;
+  max-width: 100%;
+  margin-top: 10%;
+}
+
+/* ÁLBUM */
+#page9 {
+  background-color: black;
+}
+
+.content-album {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.photo {
+  width: 50%;
+  aspect-ratio: 1/1;
+  border: 2px solid black;
+  box-sizing: border-box;
+}
+
+.photo img {
+  height: 100%;
+  display: block;
+}
+
+/* Teatro */
+#page10 {
+  background-color: #330D00;
+
+}
+
+.photo-teatro-cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.photo-teatro {
+  width: 95%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.photo-teatro img {
+  width: 100%;
+  border: solid 8px white;
+  box-sizing: border-box;
+}
+
+/* ABSTRACCIONES */
+#page11{
+  background-color: black;
+}
+.doble-photo{
+  width: 100%;
+}
+
+/* LIBRO */
+#page12{
+  background-color: black;
+}
+.cont-portada{
+  width: 90%;
+  margin: 10% auto 0;
+}
+.cont-portada img{
+  width: 100%;
+}
+.content-mod-libro{
+  display: flex;
+  flex-direction: column;
+}
+.content-mod-libro a{
+  text-decoration: none;
+}
+.desc-lib-btn{
+  border: 0;
+  background-color: #A65F37;
+  border-radius: 5px;
+  width: 85%;
+  /* height: 10%; */
+  margin: auto;
+  display: flex;
+  font-family: 'Ubuntu-Medium', sans-serif;
+  color: white;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  align-items: end;
+  justify-content: space-around;
+}
+.desc-lib-btn svg{
+  max-width: 20%;
+  max-height: 100%;
+  fill: #DBDDE0;
+}
+.desc-lib-btn div{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10px;
+  flex-grow: 1;
+}
+.desc-lib-btn div h4{
+  margin: 0;
+  font-size: 2em;
+  font-weight: 400;
+}
+.desc-lib-btn div p{
+  margin: 0;
+}
+.desc-lib-btn:hover{
+  background-color: var(--gris-icon);
+}
+.desc-lib-btn:hover svg{
+  fill: #10cc4e;
+}
+.desc-lib-btn:hover .desc-lib-btn div h4, .desc-lib-btn div p{
+  color: #10cc4e;
+}
+.desc-lib-btn:active{
+  background-color: var(--gris-icon);
+}
+.desc-lib-btn:active svg{
+  fill: #10cc4e;
+}
+.desc-lib-btn:active .desc-lib-btn div h4, .desc-lib-btn div p{
+  color: #10cc4e;
+}
+
+.content-mod-libro h3{
+  font-family: 'Ubuntu-Medium',sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 10%;
+}
+.audio-cont{
+  width: 100%;
+  text-align: center;
+  margin-top: 5%;
+}
+
+@media screen and (max-width: 480px) {
+  #frame{
+    display: block;
+  }
+  #viewport{
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .mod-bottom-bar{
+    max-width: 60px;
+  }
+  .top-button{
+    margin-bottom: 15px;
+  }
+}
