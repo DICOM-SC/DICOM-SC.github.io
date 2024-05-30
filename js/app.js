@@ -11,6 +11,8 @@ const anioActual = new Date().getFullYear();
   anioDicomElement.textContent = `©DICOM ${anioActual}`;
 
 var menuActive=false
+var onHome=false
+var actualPage=2
 
 let tl = gsap.timeline();
 tl.to("#page1", {duration:0, opacity: 0})
@@ -20,10 +22,6 @@ tl.to("#page1", {duration:0, opacity: 0})
   .to("#page1", {duration:1, opacity: 0})
   .to("#page1", {duration:0, left:"-100%"});
 
-function bajarMenu(){
-  gsap.to("#menuBar", {bottom:"-80px", duration:0});
-		menuActive=false;
-};
 function rightAll(){
   gsap.to(".HideToHome", {duration:.5, left:"100%", top:0})
   console.log("Pantallas principales a la derecha")
@@ -35,67 +33,54 @@ function rightAllDelay(){
 function bottomAll(){
   gsap.to(".HideToHome", {duration:0, zIndex: 1})
   gsap.to(".HideToHome", {duration:0, left:"0", top:"100%", delay:.5})
-  bajarMenu()
+  // bajarMenu()
   console.log("Pantallas principales bajadas")
 };
 
-document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("HomeToGalerias").addEventListener("click", function () {
-    console.log("A galerías")
-    gsap.to("#page2", { duration: .5, left:"-100%" })
-    gsap.to("#page8", { duration: .5, left:"0" })
-    console.log("Galerías abierto")
-    bajarMenu()
-  });
 
-  document.getElementById("HomeToLibro").addEventListener("click", function () {
-    gsap.to("#page2", { duration: .5, left:"-100%" })
-    gsap.to("#page6", { duration: .5, left:"0" })
-    console.log("Libro abierto")
-    bajarMenu()
-  });
 
-  document.getElementById("HomeToAbstracciones").addEventListener("click", function () {
-    gsap.to("#page2", { duration: .5, left:"-100%" })
-    gsap.to("#page11", { duration: .5, left:"0" })
-    console.log("Abstracciones abierto")
-    bajarMenu()
-  });
+// BTN ATRÁS
 
-  document.getElementById("HomeToAlbum").addEventListener("click", function () {
-    gsap.to("#page2", { duration: .5, left:"-100%" })
-    gsap.to("#page5", { duration: .5, left:"0" })
-    console.log("Álbum abierto")
-    bajarMenu()
-  });
+var PGalerias = gsap.utils.toArray("#page11, #page12, #page13, #page14, #page15, #page16, #page17")
+var IconsMenu = gsap.utils.toArray("#zira-icon, #album-icon, #libro-icon, #teatro-icon, #documental-icon, #galerias-icon")
+var BtnMenu = gsap.utils.toArray("#btn-page3, #btn-page5, #btn-page6, #btn-page10, #btn-page7, #btn-page8")
 
-  document.getElementById("HomeToDocumental").addEventListener("click", function () {
-    gsap.to("#page2", { duration: .5, left:"-100%" })
-    gsap.to("#page7", { duration: .5, left:"0" })
-    console.log("Documental abierto")
-    bajarMenu()
-  });
-
-  document.getElementById("HomeToZira").addEventListener("click", function () {
-    gsap.to("#page2", { duration: .5, left:"-100%" })
-    gsap.to("#page3", { duration: .5, left:"0" })
-    console.log("Zira abierto")
-    bajarMenu()
-  });
-
-  document.getElementById("HomeToTeatro").addEventListener("click", function () {
-    gsap.to("#page2", { duration: .5, left:"-100%" })
-    gsap.to("#page10", { duration: .5, left:"0" })
-    console.log("Teatro abierto")
-    bajarMenu()
-  });
-
-});
+function validHome(){
+  if(onHome==false){
+    gsap.to(IconsMenu, {delay: 0, duration:0,display: "none"})
+    gsap.to(".top-button", {display: "flex"})
+    gsap.to(".top-button", {delay:.5, opacity: "1"})
+    gsap.to(".back-bottom-bar", {duration:.5,height: "150px"})
+    gsap.to("#menuBar", {bottom:"-80px", duration:0.2, ease: "elastic.out"});
+    gsap.to(BtnMenu, {delay:.2,display:"flex"})
+    menuActive=false
+  }
+  else{
+    gsap.to(".top-button", {display: "none"})
+    gsap.to(".top-button", {duration:.5,opacity:0})
+    gsap.to(IconsMenu, {display: "none"})
+    gsap.to(".back-bottom-bar", {height: "80px"})
+    gsap.to(".bottom-bar", {bottom: 0})
+    gsap.to(BtnMenu, {delay:0,display:"flex"})
+    menuActive=false
+  }
+};
 
 function ToHome(){
   rightAll();
-  gsap.to("#page2", {duration:.5, left:0})
-  console.log("De vuleta al Home")
+  gsap.to("#page2", {duration:0, left:"-100%"});
+  gsap.to("#page2", {duration:.5, left:0});
+  onHome=true;
+  validHome();
+  console.log("De vuleta al Home");
+  
+};
+function BackToGalerias(){
+  gsap.to(PGalerias, {duration:.5, left:"100%", top:0})
+  gsap.to(PGalerias, {delay:.5, duration:0, left:"100%", top:0})
+  gsap.to("#page8", {duration:0, left:"-100%", top:0})
+  gsap.to("#page8", {duration:.5, left:0, top:0})
+  console.log("De vuleta a Galerías")
 };
 
 function menu_buttom(){
@@ -113,46 +98,83 @@ function menu_buttom(){
 };
 
 // BOTONES MENÚ
-function menuToAlbum(){
-  bottomAll();
-  gsap.to("#page5", { duration:0, left:0, top:"100%", zIndex:50 })
-  gsap.to("#page5", { duration:.5, left:0, top:0})
-};
 
-function menuToLibro(){
-  bottomAll();
-  gsap.to("#page6", { duration:0, left:0, top:"100%", zIndex:50 })
-  gsap.to("#page6", { duration:.5, left:0, top:0})
-};
 
-function menuToTeatro(){
+function btnMActive(){
   bottomAll();
-  gsap.to("#page10", { duration:0, left:0, top:"100%", zIndex:50 })
-  gsap.to("#page10", { duration:.5, left:0, top:0})
-};
-
-function menuToDocumental(){
-  bottomAll();
-  gsap.to("#page7", { duration:0, left:0, top:"100%", zIndex:50 })
-  gsap.to("#page7", { duration:.5, left:0, top:0})
-};
-
-function menuToAbstracciones(){
-  bottomAll();
-  gsap.to("#page11", { duration:0, left:0, top:"100%", zIndex:50 })
-  gsap.to("#page11", { duration:.5, left:0, top:0})
+  validHome();
+  if(actualPage==3){
+    gsap.to("#page3", { duration:0, left:0, top:"100%", zIndex:50 })
+    gsap.to("#page3", { duration:.5, left:0, top:0})
+    gsap.to("#zira-icon", {display:"block"})
+    gsap.to("#btn-page3", {delay:.2,display:"none"})
+  }
+  if(actualPage==5){
+    gsap.to("#page5", { duration:0, left:0, top:"100%", zIndex:50 })
+    gsap.to("#page5", { duration:.5, left:0, top:0})
+    gsap.to("#album-icon", {display:"block"})
+    gsap.to("#btn-page5", {delay:.2,display:"none"})
+  }
+  if(actualPage==6){
+    gsap.to("#page6", { duration:0, left:0, top:"100%", zIndex:50 })
+    gsap.to("#page6", { duration:.5, left:0, top:0})
+    gsap.to("#libro-icon", {display:"block"})
+    gsap.to("#btn-page6", {delay:.2,display:"none"})
+  }
+  if(actualPage==10){
+    gsap.to("#page10", { duration:0, left:0, top:"100%", zIndex:50 })
+    gsap.to("#page10", { duration:.5, left:0, top:0})
+    gsap.to("#teatro-icon", {display:"block"})
+    gsap.to("#btn-page10", {delay:.2,display:"none"})
+  }
+  if(actualPage==7){
+    gsap.to("#page7", { duration:0, left:0, top:"100%", zIndex:50 })
+    gsap.to("#page7", { duration:.5, left:0, top:0})
+    gsap.to("#documental-icon", {display:"block"})
+    gsap.to("#btn-page7", {delay:.2,display:"none"})
+  }
+  if(actualPage==8){
+    gsap.to("#page8", { duration:0, left:0, top:"100%", zIndex:50 })
+    gsap.to("#page8", { duration:.5, left:0, top:0})
+    gsap.to("#galerias-icon", {display:"block"})
+    gsap.to("#btn-page8", {delay:.2,display:"none"})
+  }
 };
 
 function menuToZira(){
-  bottomAll();
-  gsap.to("#page3", { duration:0, left:0, top:"100%", zIndex:50 })
-  gsap.to("#page3", { duration:.5, left:0, top:0})
+  actualPage=3;
+  onHome=false;
+  btnMActive();
+};
+
+function menuToAlbum(){
+  actualPage=5;
+  onHome=false;
+  btnMActive();
+};
+
+function menuToLibro(){
+  actualPage=6;
+  onHome=false;
+  btnMActive();
+};
+
+function menuToTeatro(){
+  actualPage=10;
+  onHome=false;
+  btnMActive();
+};
+
+function menuToDocumental(){
+  actualPage=7;
+  onHome=false;
+  btnMActive();
 };
 
 function menuToGalerias(){
-  bottomAll();
-  gsap.to("#page8", { duration:0, left:0, top:"100%", zIndex:50 })
-  gsap.to("#page8", { duration:.5, left:0, top:0})
+  actualPage=8;
+  onHome=false;
+  btnMActive();
 };
 
 // BOTONES PÁGINAS PRE 
@@ -172,4 +194,37 @@ function btnToZira(){
   gsap.to("#page4", {duration:0, left:"100%", top:0})
   gsap.to("#page4", {duration:.5, left:0, top:0})
   gsap.to("#page3", {duration:.5, left:"-100%", top:0})
+};
+
+// BOTONES PÁGINA GALERÍAS
+
+function GalToMetamorfosis(){
+  bottomAll();
+  gsap.to("#page13", { duration:0, left:0, top:"100%", zIndex:50 })
+  gsap.to("#page13", { duration:.5, left:0, top:0})
+};
+function GalToAbstracciones(){
+  bottomAll();
+  gsap.to("#page11", { duration:0, left:0, top:"100%", zIndex:50 })
+  gsap.to("#page11", { duration:.5, left:0, top:0})
+};
+function GalToSuenosYEncuentros(){
+  bottomAll();
+  gsap.to("#page14", { duration:0, left:0, top:"100%", zIndex:50 })
+  gsap.to("#page14", { duration:.5, left:0, top:0})
+};
+function GalToAbtractos(){
+  bottomAll();
+  gsap.to("#page15", { duration:0, left:0, top:"100%", zIndex:50 })
+  gsap.to("#page15", { duration:.5, left:0, top:0})
+};
+function GalToGal1(){
+  bottomAll();
+  gsap.to("#page16", { duration:0, left:0, top:"100%", zIndex:50 })
+  gsap.to("#page16", { duration:.5, left:0, top:0})
+};
+function GalToGal2PreSentimientos(){
+  bottomAll();
+  gsap.to("#page17", { duration:0, left:0, top:"100%", zIndex:50 })
+  gsap.to("#page17", { duration:.5, left:0, top:0})
 };
