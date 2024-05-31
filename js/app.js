@@ -43,7 +43,7 @@ function bottomAll(){
 
 var PGalerias = gsap.utils.toArray("#page11, #page12, #page13, #page14, #page15, #page16, #page17")
 var IconsMenu = gsap.utils.toArray("#zira-icon, #album-icon, #libro-icon, #teatro-icon, #documental-icon, #galerias-icon")
-var BtnMenu = gsap.utils.toArray("#btn-page3, #btn-page5, #btn-page6, #btn-page10, #btn-page7, #btn-page8")
+var BtnMenu = gsap.utils.toArray("#btn-page4, #btn-page9, #btn-page12, #btn-page10, #btn-page7, #btn-page8")
 
 function validHome(){
   if(onHome==false){
@@ -66,6 +66,8 @@ function validHome(){
   }
 };
 
+
+
 function ToHome(){
   rightAll();
   gsap.to("#page2", {duration:0, left:"-100%"});
@@ -75,6 +77,32 @@ function ToHome(){
   console.log("De vuleta al Home");
   
 };
+var PopUps = gsap.utils.toArray("#AdZira, #AdAlbum, #AdLibro")
+
+function PopUpAdd(){
+  if(actualPage==4){
+    gsap.to("#AdZira", {duration:0, display:"flex"});
+    gsap.to("#AdZira", {duration:.5, opacity:1});
+    gsap.to(".marco-top", {delay:.3,duration:.5, scale:1,ease:"back.out"});
+  }
+  if(actualPage==9){
+    gsap.to("#AdAlbum", {duration:0, display:"flex"});
+    gsap.to("#AdAlbum", {duration:.5, opacity:1});
+    gsap.to(".marco-top", {delay:.3,duration:.5, scale:1,ease:"back.out"});
+  }
+  if(actualPage==12){
+    gsap.to("#AdLibro", {duration:0, display:"flex"});
+    gsap.to("#AdLibro", {duration:.5, opacity:1});
+    gsap.to(".marco-top", {delay:.3,duration:.5, scale:1,ease:"back.out"});
+  }
+};
+
+function ClosePopUp(){
+  gsap.to(".marco-top", {delay:0,duration:.5, scale:0,ease:"back.in"});
+  gsap.to(PopUps, {delay:.5, display:"none"});
+  gsap.to(PopUps, {delay:.3,duration:.5, opacity:0});
+}
+
 function BackToGalerias(){
   gsap.to(PGalerias, {duration:.5, left:"100%", top:0})
   gsap.to(PGalerias, {delay:.5, duration:0, left:"100%", top:0})
@@ -103,23 +131,23 @@ function menu_buttom(){
 function btnMActive(){
   bottomAll();
   validHome();
-  if(actualPage==3){
-    gsap.to("#page3", { duration:0, left:0, top:"100%", zIndex:50 })
-    gsap.to("#page3", { duration:.5, left:0, top:0})
+  if(actualPage==4){
+    gsap.to("#page4", { duration:0, left:0, top:"100%", zIndex:50 })
+    gsap.to("#page4", { duration:.5, left:0, top:0})
     gsap.to("#zira-icon", {display:"block"})
-    gsap.to("#btn-page3", {delay:.2,display:"none"})
+    gsap.to("#btn-page4", {delay:.2,display:"none"})
   }
-  if(actualPage==5){
-    gsap.to("#page5", { duration:0, left:0, top:"100%", zIndex:50 })
-    gsap.to("#page5", { duration:.5, left:0, top:0})
+  if(actualPage==9){
+    gsap.to("#page9", { duration:0, left:0, top:"100%", zIndex:50 })
+    gsap.to("#page9", { duration:.5, left:0, top:0})
     gsap.to("#album-icon", {display:"block"})
-    gsap.to("#btn-page5", {delay:.2,display:"none"})
+    gsap.to("#btn-page9", {delay:.2,display:"none"})
   }
-  if(actualPage==6){
-    gsap.to("#page6", { duration:0, left:0, top:"100%", zIndex:50 })
-    gsap.to("#page6", { duration:.5, left:0, top:0})
+  if(actualPage==12){
+    gsap.to("#page12", { duration:0, left:0, top:"100%", zIndex:50 })
+    gsap.to("#page12", { duration:.5, left:0, top:0})
     gsap.to("#libro-icon", {display:"block"})
-    gsap.to("#btn-page6", {delay:.2,display:"none"})
+    gsap.to("#btn-page12", {delay:.2,display:"none"})
   }
   if(actualPage==10){
     gsap.to("#page10", { duration:0, left:0, top:"100%", zIndex:50 })
@@ -142,19 +170,19 @@ function btnMActive(){
 };
 
 function menuToZira(){
-  actualPage=3;
+  actualPage=4;
   onHome=false;
   btnMActive();
 };
 
 function menuToAlbum(){
-  actualPage=5;
+  actualPage=9;
   onHome=false;
   btnMActive();
 };
 
 function menuToLibro(){
-  actualPage=6;
+  actualPage=12;
   onHome=false;
   btnMActive();
 };

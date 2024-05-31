@@ -192,10 +192,7 @@ button{
   fill: var(--color-icon);
 }
 
-/* ZIRA TRANS */
-#page3 {
-  background-color: #968075;
-}
+/* BARRA SUPERIOR */
 
 .top-bar-cont {
   width: 100%;
@@ -203,7 +200,6 @@ button{
   font-family: "Ubuntu-Medium", sans-serif;
   display: flex;
 }
-
 .home-button {
   position: relative;
   border: 0;
@@ -233,15 +229,40 @@ button{
   text-transform: uppercase;
   letter-spacing: 2px;
   position: relative;
-  left: -30px;
   font-weight: 400;
 }
+
+.ad-page{
+  background-color: transparent;
+  border: none; 
+}
+
+.ad-page svg {
+  fill: white;
+  margin: 15px;
+  width: 30px;
+  height: 30px;
+}
+  
+.ad-page:hover svg{
+  fill: var(--color-icon);
+}
+.ad-page:active svg{
+  fill: var(--color-icon);
+}
+
+/* ZIRA POS */
 
 .page-ziraTrans {
   max-width: 70%;
   text-align: center;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
 }
+
 
 .mod-flor-large {
   width: 70%;
@@ -360,7 +381,7 @@ button{
 }
 
 .mod-bottom-bar {
-  max-width: 70px;
+  max-width: 60px;
 }
 
 .top-button {
@@ -400,8 +421,8 @@ button{
   background-color: var(--bottom-bar);
   padding: 5px;
   box-sizing: border-box;
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -417,7 +438,7 @@ button{
 
 .page-content {
   width: 100%;
-  height: 90%;
+  height:100%;
   box-sizing: border-box;
   overflow-y: scroll;
   padding-bottom: 80px;
@@ -428,16 +449,16 @@ button{
 }
 
 .facemorph-video-cont {
-  max-height: 100%;
+  height: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  /* justify-content: end; */
 }
 
-.facemorph-video {
+.facemorph-video-cont>iframe {
   width: 100%;
-  bottom: 0;
+  height: 100%;
 }
 
 .facemorph-video::-webkit-media-controls {
@@ -453,15 +474,16 @@ button{
 #page5 {
   background-color: #8f582f;
 }
-
+.page-TransAlbum{
+  overflow: hidden;
+  height: 60%;
+}
 .page-TransAlbum img {
   width: 100%;
 }
-.page-TransAlbum{
-  height: 45%;
-}
 
 .cont-texto-album {
+  height: 40%;
   width: 100%;
   background-color: #8f582f;
   padding: 0 14%;
@@ -470,10 +492,11 @@ button{
 }
 
 .cont-texto-album p {
-  margin: 0;
+  padding: 10% 0;
   text-align: center;
   font-size: 0.9em;
   color: white;
+  margin: 0;
 }
 
 .cont-texto-album div {
@@ -483,7 +506,7 @@ button{
   top: -100px;
   left: 0;
   background: linear-gradient(0deg,
-      rgba(143, 88, 47, 1) 4%,
+      rgba(143, 88, 47, 1) 2%,
       rgba(143, 88, 47, 0) 100%);
 }
 
@@ -713,9 +736,48 @@ h3 {
 .page-content iframe{
   width: 100%;
   aspect-ratio: 16/9;
-  margin-top: 20px;
 }
 
+/* POPS */
+.pop{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  /* display: flex; */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.61);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+}
+.marco-top{
+  position: relative;
+  width: 90%;
+  height: 70%;
+  scale: 0;
+}
+.marco-ad{
+  background-color: #a08476;
+  border-radius: 10px;
+  border: solid 3px #d6c1b7;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+.close-ad{
+  position: absolute;
+  right: 0;
+  top: -70px;
+  height: 40px;
+  cursor: pointer;
+  pointer-events: none;
+}
 
 @media screen and (max-width: 480px) {
   #frame{
@@ -729,7 +791,8 @@ h3 {
 }
 
 @media screen and (max-width: 1400px) {
-  .mod-bottom-bar{
-    max-width: 60px;
-  }
+
+}
+.ocultar{
+  display: none;
 }
