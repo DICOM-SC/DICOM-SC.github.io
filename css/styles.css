@@ -16,6 +16,9 @@
   font-family: Ubuntu-Medium;
   src: url(/fonts/Ubuntu-Medium.woff);
 }
+/* svg{
+  display: none;
+} */
 
 body {
   margin: 0;
@@ -171,14 +174,14 @@ button{
 .round-button:hover{
   background-color: var(--fondo-button-hover);
 }
-.round-button:hover svg{
-  fill: white;
+.round-button:hover img{
+  filter: invert(0%);
 }
 .round-button:active{
   background-color: var(--fondo-button-hover);
 }
-.round-button:active svg{
-  fill: white;
+.round-button:active img{
+  filter: invert(0%);
 }
 
 .menu-column:nth-child(even) {
@@ -189,7 +192,6 @@ button{
 .svg-icon {
   max-width: 55%;
   max-height: 55%;
-  fill: var(--color-icon);
 }
 
 /* BARRA SUPERIOR */
@@ -207,15 +209,14 @@ button{
   background-color: transparent;
   z-index: 51;
 }
-.home-button:hover svg{
-  fill: var(--color-icon);
+.home-button:hover img{
+  filter: invert(100%);
 }
-.home-button:active svg{
-  fill: var(--color-icon);
+.home-button:active img{
+  filter: invert(100%);
 }
 
-.home-button svg {
-  fill: white;
+.home-button img {
   margin: 15px;
   width: 30px;
   height: 30px;
@@ -237,17 +238,17 @@ button{
   border: none; 
 }
 
-.ad-page svg {
+.ad-page img {
   fill: white;
   margin: 15px;
   width: 30px;
   height: 30px;
 }
   
-.ad-page:hover svg{
+.ad-page:hover img{
   fill: var(--color-icon);
 }
-.ad-page:active svg{
+.ad-page:active img{
   fill: var(--color-icon);
 }
 
@@ -429,6 +430,9 @@ button{
   align-items: center;
   backdrop-filter: blur(50px);
 }
+.fondo-higher img{
+  filter: invert(100%);
+}
 
 /* FACEMORPH PAGE */
 #page4 {
@@ -441,7 +445,7 @@ button{
   height:100%;
   box-sizing: border-box;
   overflow-y: scroll;
-  padding-bottom: 80px;
+  padding-bottom: 190px;
   position: relative;
 }
 .page-content::-webkit-scrollbar{
@@ -651,7 +655,7 @@ h3 {
 }
 .cont-portada{
   width: 90%;
-  margin: 10% auto 0;
+  margin: 10px auto 0;
 }
 .cont-portada img{
   width: 100%;
@@ -678,10 +682,9 @@ h3 {
   align-items: end;
   justify-content: space-around;
 }
-.desc-lib-btn svg{
+.desc-lib-btn img{
   max-width: 20%;
   max-height: 100%;
-  fill: #DBDDE0;
 }
 .desc-lib-btn div{
   display: flex;
@@ -778,6 +781,7 @@ h3 {
   cursor: pointer;
   pointer-events: none;
 }
+
 
 @media screen and (max-width: 480px) {
   #frame{
