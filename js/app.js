@@ -77,7 +77,7 @@ function ToHome(){
   console.log("De vuleta al Home");
   
 };
-var PopUps = gsap.utils.toArray("#AdZira, #AdAlbum, #AdLibro")
+var PopUps = gsap.utils.toArray("#AdZira, #AdAlbum, #AdLibro, #AdDesc")
 
 function PopUpAdd(){
   if(actualPage==4){
@@ -96,11 +96,19 @@ function PopUpAdd(){
     gsap.to(".marco-top", {delay:.3,duration:.5, scale:1,ease:"back.out"});
   }
 };
+function PopUpDone(){
+  gsap.to("#AdDesc", {duration:0, display:"flex"});
+  gsap.to("#AdDesc", {duration:.5, opacity:1});
+  gsap.to(".marco-desc", {delay:.3,duration:.5, scale:1,ease:"back.out"});
+  console.log("Done!")
+}
 
 function ClosePopUp(){
   gsap.to(".marco-top", {delay:0,duration:.5, scale:0,ease:"back.in"});
+  gsap.to(".marco-desc", {delay:0,duration:.5, scale:0,ease:"back.in"});
   gsap.to(PopUps, {delay:.5, display:"none"});
   gsap.to(PopUps, {delay:.3,duration:.5, opacity:0});
+  console.log("Popup cerrado");
 }
 
 function BackToGalerias(){

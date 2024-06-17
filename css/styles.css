@@ -60,10 +60,6 @@ body {
   left: 100%;
 }
 
-.active {
-  left: 0;
-  z-index: 9999;
-}
 
 button{
   cursor: pointer;
@@ -780,6 +776,50 @@ h3 {
   height: 40px;
   cursor: pointer;
   pointer-events: none;
+}
+
+/* POPUP DESCARGA */
+.marco-desc-ad{
+  border-color: rgb(221, 221, 221);
+  background-color: white;
+}
+.mod-desc{
+  background-color: transparent;
+}
+.mod-desc p{
+  color: rgb(63, 63, 63);
+  font-family: 'Ubuntu-Medium',sans-serif;
+  font-size: .7em;
+  padding-top: 10px;
+}
+.mod-desc p a{
+  color: #A65F37
+}
+.mod-desc p a:active{
+  color: #5c5527
+}
+.mod-desc p a:hover{
+  color: #5c5527
+}
+.marco-desc{
+  position: relative;
+  width: 90%;
+  height: 70%;
+  border-color: rgb(216, 216, 216);
+}
+
+.marco-desc > .marco-ad > .page-TransAlbum > img{
+  margin: 30px;
+  width: 50px;
+}
+.active {
+  left: 0;
+  z-index: 9999;
+  opacity: 1;
+}
+.active-pop{
+  display: flex;
+  opacity: 1;
 }
 
 
